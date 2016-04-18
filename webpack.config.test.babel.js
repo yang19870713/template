@@ -39,7 +39,8 @@ export default {
     plugins: [
         new webpack.NoErrorsPlugin(),
         new webpack.ProvidePlugin({
-            chai       : "chai"
+            chai       : "chai",
+            _          : "lodash"
         })
     ]
 }
