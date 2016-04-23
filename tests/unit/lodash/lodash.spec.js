@@ -31,3 +31,21 @@ describe("_.reduce", () => {
         expect(sumOfSquares(input, 4)).to.equal(18);
     });
 });
+
+describe("_.identity", () => {
+    it('should return the first argument', () => {
+        expect(_.identity(1, 2)).to.equal(1);
+        expect(_.identity([1,2], 1)).to.deep.equal([1, 2]);
+        expect(_.identity({a:1, b:2}), 1).to.deep.equal({a:1, b:2});
+    });
+});
+
+describe("_.map", () => {
+    it('should call iteratee on the value/key of each property of an object', () => {
+        _.map({a:1}, (val, index) => {
+            expect(val).to.equal(1);
+            expect(index).to.equal('a');
+        });
+        expect(_.map({a:1, b:2}, _.identity)).to.deep.equal([1, 2]);
+    });
+});
