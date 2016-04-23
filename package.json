@@ -7,7 +7,7 @@
     "start": "npm run dev",
     "dev": "webpack-dev-server --devtool cheap-module-eval-source-map --content-base . --host 0.0.0.0 --port 8080 --hot --inline --progress --colors",
     "utest": "webpack-dev-server --devtool source-map --config webpack.config.test.babel.js  --content-base tests/ --host 0.0.0.0 --port 9090 --hot --inline --progress --colors",
-    "dist": "rm -rf ./dist/*; webpack --progress --colors"
+    "dist": "webpack --progress --colors"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +26,7 @@
     "path": "^0.12.7",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.15",
     "webpack-dev-server": "^1.14.1"
   }

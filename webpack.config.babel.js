@@ -7,7 +7,9 @@ export default {
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        publicPath: "/dist"
+        publicPath: "/dist",
+        filename: "[name].js",
+        chunkFilename: "[id].chunk.js",
     },
     module: {
         loaders: [{
