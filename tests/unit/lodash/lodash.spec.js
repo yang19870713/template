@@ -49,3 +49,59 @@ describe("_.map", () => {
         expect(_.map({a:1, b:2}, _.identity)).to.deep.equal([1, 2]);
     });
 });
+
+
+describe("_.sortBy", () => {
+    it('should sort a collection by each iteratee', () => {
+        let input = [
+            {
+                name: 'a',
+                age: 2
+            },
+            {
+                name: 'c',
+                age: 1,
+            },
+            {
+                name: 'b',
+                age: 1
+            }
+        ]
+        let [a, c, b] = input;
+        expect(_.sortBy(input, 'name')).to.deep.equal([a, b ,c]);
+        expect(_.sortBy(input, 'age')).to.deep.equal([c, b, a]);
+        expect(_.sortBy(input, 'age', 'name')).to.deep.equal([b,c,a]);
+
+    });
+});
+
+describe('_.groupBy', () => {
+    it('should group a collection by given iteratee', () => {
+        let input = [
+            {
+                name: 'a',
+                age: 2
+            },
+            {
+                name: 'a',
+                age: 1,
+            },
+            {
+                name: 'b',
+                age: 1
+            }
+        ];
+        let [a, c, b] = input;
+        expect(_.groupBy(input, 'name')).to.deep.equal({
+            'a':[a, c],
+            'b':[b]
+        });
+    });
+});
+
+describe('_.rest', () => {
+    it('should treat arguments as an array', () => {
+        let rest = _.rest(items => items);
+        expect(rest(1,2,3)).to.deep.equal([1,2,3]);
+    });
+});
